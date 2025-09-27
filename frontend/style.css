@@ -1,5 +1,4 @@
-/* General Styling */
-:root {
+/* :root {
     --primary-color: #4A90E2;
     --secondary-color: #F5A623;
     --background-color: #F4F7FC;
@@ -38,7 +37,6 @@ h1 {
     margin-bottom: 2.5rem;
 }
 
-/* Header and Navigation */
 header {
     background-color: var(--card-bg-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
@@ -83,7 +81,6 @@ nav ul li a.active {
     border-bottom-color: var(--primary-color);
 }
 
-/* Page Display Logic */
 .page {
     display: none;
 }
@@ -92,7 +89,6 @@ nav ul li a.active {
     display: block;
 }
 
-/* Dashboard Grid */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -140,7 +136,6 @@ nav ul li a.active {
 }
 
 
-/* Profile Form Styling */
 .profile-form {
     background-color: var(--card-bg-color);
     padding: 2.5rem;
@@ -221,7 +216,6 @@ nav ul li a.active {
     background-color: #E49B20;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
@@ -231,4 +225,444 @@ nav ul li a.active {
     .form-grid {
         grid-template-columns: 1fr;
     }
+} */
+
+/* General Styling */
+:root {
+    --primary-color: #4A90E2; /* Blue */
+    --secondary-color: #F5A623; /* Orange */
+    --accent-color: #50E3C2; /* Teal */
+    --dark-text: #2c3e50; /* Darker blue-gray for main text */
+    --light-text: #7f8c8d; /* Lighter gray for secondary text */
+    --white: #FFFFFF;
+    --light-bg: #ecf0f1; /* Light background */
+    --card-bg: var(--white);
+    --border-color: #dfe6e9;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-text);
+    line-height: 1.6;
+    background-color: var(--light-bg); /* Fallback background */
+    min-height: 100vh;
+    display: flex; /* For centering login page */
+    flex-direction: column; /* For proper app container flow */
+    position: relative; /* For gradient positioning */
+}
+
+/* Gradient Background */
+.gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Default gradient for login page */
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); /* Light blue to very light blue */
+    opacity: 1;
+    transition: opacity 0.8s ease-in-out, background 0.8s ease-in-out;
+    z-index: -1;
+}
+
+/* Gradient for logged-in state */
+body.logged-in .gradient-bg {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%); /* Blue to Teal */
+    opacity: 0.8; /* Make it less dominant when logged in */
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+h1 {
+    color: var(--dark-text);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--dark-text);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: var(--light-text);
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.85rem 1.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; /* For form buttons */
+}
+
+.primary-btn:hover {
+    background-color: #357ABD; /* Darker primary */
+    transform: translateY(-2px);
+}
+
+.card-btn { /* Specific style for card buttons */
+    background-color: var(--secondary-color);
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.card-btn:hover {
+    background-color: #e6951b; /* Darker secondary */
+}
+
+/* Header and Navigation */
+header {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    box-shadow: 0 2px 10px var(--shadow-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-bottom: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.8rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--dark-text);
+    font-weight: 600;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Google Translate Widget Styling */
+#google_translate_element {
+    font-size: 0.85rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-text);
+}
+#google_translate_element .goog-te-gadget {
+    font-family: 'Poppins', sans-serif !important;
+    color: var(--dark-text) !important;
+}
+.goog-te-combo {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 5px 8px;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+
+/* Page Display Logic */
+.page {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.page.active {
+    display: block;
+}
+
+/* Login Page Specific Styling */
+.login-page {
+    display: flex; /* Use flex to center content */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 2rem;
+    position: absolute; /* Take over the whole screen */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Above the gradient, below app-container */
+}
+
+.login-container {
+    width: 100%;
+    max-width: 450px;
+    margin: auto; /* Center it */
+}
+
+.login-card {
+    background-color: var(--white);
+    padding: 3rem 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-medium);
+    text-align: center;
+}
+
+.login-card h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.login-card p {
+    color: var(--light-text);
+    margin-bottom: 2rem;
+}
+
+.login-form .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.login-form .form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.login-card .primary-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.signup-link {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--light-text);
+}
+
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding-bottom: 3rem; /* Add some space at the bottom */
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.card p {
+    margin-bottom: 0.5rem;
+    color: var(--light-text);
+}
+
+.card p strong {
+    color: var(--dark-text);
+}
+
+
+/* Profile Form Styling */
+#app-container {
+    flex-grow: 1; /* Allow app container to take available space */
+}
+
+.profile-form {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem; /* Space at bottom */
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 2rem;
+}
+.form-section:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--dark-text);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--light-bg); /* Slightly grey input background */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+    background-color: var(--white);
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+    min-height: 80px;
+}
+
+.help-text {
+    font-size: 0.85rem;
+    color: var(--light-text);
+    margin-top: 0.4rem;
+}
+
+.submit-btn {
+    margin-top: 2rem;
+    width: auto; /* Override card-btn width */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    nav ul {
+        flex-wrap: wrap; /* Allow nav links to wrap */
+        justify-content: center;
+        gap: 1rem;
+    }
+    .container {
+        padding: 1.5rem 0.8rem;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-form {
+        padding: 1.5rem;
+    }
+    .login-card {
+        padding: 2rem 1.5rem;
+    }
+    .login-card h1 {
+        font-size: 1.6rem;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    #google_translate_element {
+        top: auto;
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
