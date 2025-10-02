@@ -1,0 +1,447 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Internship Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">Internship Gateway</div>
+            <ul>
+                <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                <li><a href="#profile" class="nav-link">My Profile</a></li>
+                <li><a href="#" class="nav-link">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="dashboard" class="page active">
+            <div class="container">
+                <h1>Welcome, Student!</h1>
+                <p class="subtitle">Here are the top internship recommendations for you.</p>
+
+                <div class="dashboard-grid">
+                    <div class="card">
+                        <h3>Software Development Intern</h3>
+                        <p><strong>Company:</strong> Tech Solutions Inc.</p>
+                        <p><strong>Location:</strong> Bangalore</p>
+                        <p><strong>Stipend:</strong> ₹25,000/month</p>
+                        <button>View & Apply</button>
+                    </div>
+                    <div class="card">
+                        <h3>Data Analyst Intern</h3>
+                        <p><strong>Company:</strong> Data Insights Co.</p>
+                        <p><strong>Location:</strong> Hyderabad</p>
+                        <p><strong>Stipend:</strong> ₹22,000/month</p>
+                        <button>View & Apply</button>
+                    </div>
+                    <div class="card">
+                        <h3>Marketing Intern</h3>
+                        <p><strong>Company:</strong> Market Movers</p>
+                        <p><strong>Location:</strong> Mumbai</p>
+                        <p><strong>Stipend:</strong> ₹18,000/month</p>
+                        <button>View & Apply</button>
+                    </div>
+                    <div class="card">
+                        <h3>UI/UX Design Intern</h3>
+                        <p><strong>Company:</strong> Creative Designs</p>
+                        <p><strong>Location:</strong> Pune</p>
+                        <p><strong>Stipend:</strong> ₹20,000/month</p>
+                        <button>View & Apply</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profile" class="page">
+            <div class="container">
+                <h1>My Profile</h1>
+                <p class="subtitle">Keep your details updated to get the best recommendations.</p>
+                
+                <form class="profile-form">
+                    <div class="form-section">
+                        <h2>Personal Details</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" placeholder="Enter your full name">
+                            </div>
+                            <div class="form-group">
+                                <label for="dob">Date of Birth</label>
+                                <input type="date" id="dob">
+                            </div>
+                             <div class="form-group">
+                                <label for="age">Age</label>
+                                <input type="number" id="age" placeholder="Enter your age">
+                            </div>
+                            <div class="form-group">
+                                <label for="parent-name">Parent's/Guardian's Name</label>
+                                <input type="text" id="parent-name" placeholder="Enter parent's name">
+                            </div>
+                            <div class="form-group">
+                                <label for="location">City/Town</label>
+                                <input type="text" id="location" placeholder="Where do you live?">
+                            </div>
+                            <div class="form-group">
+                                <label for="income">Annual Family Income (in ₹)</label>
+                                <input type="number" id="income" placeholder="e.g., 450000" max="600000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>Qualifications & Skills</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="college">College/University Name</label>
+                                <input type="text" id="college" placeholder="Your college name">
+                            </div>
+                            <div class="form-group">
+                                <label for="qualification">Highest Qualification</label>
+                                <input type="text" id="qualification" placeholder="e.g., B.Tech in CSE">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="skills">Skills (comma-separated)</label>
+                                <input type="text" id="skills" placeholder="e.g., Python, C++, HTML, CSS, Figma">
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="form-section">
+                        <h2>Internship Preferences</h2>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="pref-location">Preferred Internship Location</label>
+                                <select id="pref-location">
+                                    <option value="" disabled selected>Select a location</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Delhi-NCR">Delhi-NCR</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="other-location">If Other, please specify</label>
+                                <input type="text" id="other-location" placeholder="Enter your preferred city">
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="past-internships">Past Internship Experience (if any)</label>
+                                <textarea id="past-internships" rows="4" placeholder="Describe your past roles and responsibilities..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Save Changes</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // Simple script to toggle between pages
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                // No page reload
+                e.preventDefault(); 
+                
+                // Don't do anything for logout button
+                if(e.target.textContent === 'Logout') return;
+
+                // Update active link
+                navLinks.forEach(l => l.classList.remove('active'));
+                e.target.classList.add('active');
+
+                // Show target page
+                const targetId = e.target.getAttribute('href');
+                pages.forEach(page => {
+                    if ('#' + page.id === targetId) {
+                        page.classList.add('active');
+                    } else {
+                        page.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM Internship Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="google_translate_element" style="position: absolute; top: 10px; right: 10px; z-index: 1000;"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <div class="gradient-bg"></div> <section id="login" class="page active login-page">
+        <div class="login-container">
+            <div class="login-card">
+                <h1>Welcome to Internship Gateway</h1>
+                <p>Find your next big opportunity.</p>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="username">Email or Username</label>
+                        <input type="text" id="username" required placeholder="Enter your email or username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="primary-btn">Login</button>
+                    <p class="signup-link">Don't have an account? <a href="#">Sign Up</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <div id="app-container" style="display: none;">
+        <header>
+            <nav>
+                <div class="logo">Internship Gateway</div>
+                <ul>
+                    <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+                    <li><a href="#profile" class="nav-link">My Profile</a></li>
+                    <li><a href="#login" class="nav-link" id="logout-btn">Logout</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="dashboard" class="page active">
+                <div class="container">
+                    <h1>Welcome, Student!</h1>
+                    <p class="subtitle">Here are the top internship recommendations for you.</p>
+
+                    <div class="dashboard-grid">
+                        <div class="card">
+                            <h3>Software Development Intern</h3>
+                            <p><strong>Company:</strong> Tech Solutions Inc.</p>
+                            <p><strong>Location:</strong> Bangalore</p>
+                            <p><strong>Stipend:</strong> ₹25,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                        <div class="card">
+                            <h3>Data Analyst Intern</h3>
+                            <p><strong>Company:</strong> Data Insights Co.</p>
+                            <p><strong>Location:</strong> Hyderabad</p>
+                            <p><strong>Stipend:</strong> ₹22,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                        <div class="card">
+                            <h3>Marketing Intern</h3>
+                            <p><strong>Company:</strong> Market Movers</p>
+                            <p><strong>Location:</strong> Mumbai</p>
+                            <p><strong>Stipend:</strong> ₹18,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                        <div class="card">
+                            <h3>UI/UX Design Intern</h3>
+                            <p><strong>Company:</strong> Creative Designs</p>
+                            <p><strong>Location:</strong> Pune</p>
+                            <p><strong>Stipend:</strong> ₹20,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                         <div class="card">
+                            <h3>Product Management Intern</h3>
+                            <p><strong>Company:</strong> Innovate Labs</p>
+                            <p><strong>Location:</strong> Delhi-NCR</p>
+                            <p><strong>Stipend:</strong> ₹28,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                        <div class="card">
+                            <h3>Financial Analyst Intern</h3>
+                            <p><strong>Company:</strong> Wealth Advisors</p>
+                            <p><strong>Location:</strong> Chennai</p>
+                            <p><strong>Stipend:</strong> ₹20,000/month</p>
+                            <button class="card-btn">View & Apply</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="profile" class="page">
+                <div class="container">
+                    <h1>My Profile</h1>
+                    <p class="subtitle">Keep your details updated to get the best recommendations.</p>
+                    
+                    <form class="profile-form">
+                        <div class="form-section">
+                            <h2>Personal Details</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" placeholder="Enter your full name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="dob">Date of Birth</label>
+                                    <input type="date" id="dob">
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">Age</label>
+                                    <input type="number" id="age" placeholder="Enter your age">
+                                </div>
+                                <div class="form-group">
+                                    <label for="parent-name">Parent's/Guardian's Name</label>
+                                    <input type="text" id="parent-name" placeholder="Enter parent's name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="location">City/Town</label>
+                                    <input type="text" id="location" placeholder="Where do you live?">
+                                </div>
+                                <div class="form-group">
+                                    <label for="income">Annual Family Income (in ₹)</label>
+                                    <input type="number" id="income" placeholder="e.g., 450000" max="600000">
+                                    <small class="help-text">Income should be less than ₹6,00,000</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Qualifications & Skills</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="college">College/University Name</label>
+                                    <input type="text" id="college" placeholder="Your college name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qualification">Highest Qualification</label>
+                                    <input type="text" id="qualification" placeholder="e.g., B.Tech in CSE">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="skills">Skills (comma-separated)</label>
+                                    <input type="text" id="skills" placeholder="e.g., Python, C++, HTML, CSS, Figma">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-section">
+                            <h2>Internship Preferences</h2>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="pref-location">Preferred Internship Location</label>
+                                    <select id="pref-location">
+                                        <option value="" disabled selected>Select a location</option>
+                                        <option value="Bangalore">Bangalore</option>
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Delhi-NCR">Delhi-NCR</option>
+                                        <option value="Hyderabad">Hyderabad</option>
+                                        <option value="Pune">Pune</option>
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Ahmedabad">Ahmedabad</option>
+                                        <option value="Kolkata">Kolkata</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="other-location">If Other, please specify</label>
+                                    <input type="text" id="other-location" placeholder="Enter your preferred city">
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="past-internships">Past Internship Experience (if any)</label>
+                                    <textarea id="past-internships" rows="4" placeholder="Describe your past roles and responsibilities..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="primary-btn submit-btn">Save Changes</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        // --- Page Switching & Login/Logout Logic ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const loginPage = document.getElementById('login');
+        const appContainer = document.getElementById('app-container');
+        const loginForm = document.getElementById('login-form');
+        const logoutBtn = document.getElementById('logout-btn');
+
+        function showPage(id) {
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.querySelector(id).classList.add('active');
+
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.querySelector(`[href="${id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // In a real application, you'd send login credentials to a server.
+            // For this frontend demo, we'll just "log in" instantly.
+            loginPage.style.display = 'none';
+            appContainer.style.display = 'block';
+            showPage('#dashboard'); // Go to dashboard after login
+            document.body.classList.add('logged-in'); // Add class to body for gradient
+        });
+
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            appContainer.style.display = 'none';
+            loginPage.style.display = 'flex'; // Use flex for centering login content
+            document.body.classList.remove('logged-in'); // Remove class
+            // Clear any active nav links for the app-container
+            navLinks.forEach(link => link.classList.remove('active'));
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href');
+                if (targetId === '#login' && e.target.id === 'logout-btn') {
+                    // Handled by logoutBtn listener
+                    logoutBtn.click(); // Programmatically click the logout button
+                } else if (appContainer.style.display === 'block') { // Only navigate if logged in
+                     showPage(targetId);
+                }
+            });
+        });
+
+        // Initialize to show login page
+        showPage('#login'); 
+
+        function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'en',
+            // Add this line to specify the languages you want
+            includedLanguages: 'en,hi,bn,te,mr,ta,gu,pa,kn,ml', 
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            // And this line to prevent the automatic banner
+            autoDisplay: false 
+        }, 'google_translate_element');
+    }
+
+    </script>
+</body>
+</html>
